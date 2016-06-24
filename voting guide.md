@@ -9,8 +9,8 @@ Please ask us to create a server instance for you
 
 0. login to your code.vote server with your userid and password
 
-      $ SSH AdminUserID@code.vote
-      AdminUserID@code.vote's password:
+        $ SSH AdminUserID@code.vote
+        AdminUserID@code.vote's password:
     
 ### setting up the election 
 
