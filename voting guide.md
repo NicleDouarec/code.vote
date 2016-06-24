@@ -6,6 +6,10 @@ this document gives you a line by line description of what's required to setup a
 Please ask us to create a server instance for you
 
 ## Administrator
+
+login to your code.vote server
+    $ SSH code.vote
+    
 ### setting up the election 
 Generate an UUID with the `uuidgen` command.
 
@@ -17,7 +21,8 @@ publish the output, `$UUID` and notify the **trustees** and the **census**
 Edit `questions.json`
 
 create the **bulletin board**
-run: `belenios-tool mkelection --uuid $UUID --group default.json --template questions.json`
+
+`belenios-tool mkelection --uuid $UUID --group default.json --template questions.json`
 
 to generate `election.json`
 
