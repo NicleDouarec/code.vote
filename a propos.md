@@ -3,12 +3,12 @@
 Code to vote est un ensemble de processus, modes opératoires, configurations de serveurs et bien sur du code informatique qui permet d'organiser un vote numérique, dématérialisé.
 
 Le systeme de vote ainsi formé forme une référence de l'état de l'art. Les meilleures pratiques, et les meilleures tecnologies au service d'un système de vote dématérialisé sont implémentées dans code.vote.
-Le résultat est un système
-
-qui répond a la fois et aux exigences de la CNIL 
+Le résultat est un système de vote :
+- verifiable de bout en bout selon [la définition de l'US vote foundation](https://www.usvotefoundation.org/sites/default/files/E2EVIV_full_report.pdf)
+- répondant aux exigences de la CNIL 
 
 En particulier, les protocoles cryptologiques de l'urne numérique sont ceux de Belenios, projet de l'INRIA [Belenios] (http://belenios.gforge.inria.fr/)
-le code interne de Belenios est un logiciel libre, regi par la licence GNU Affero General Public License, version 3 ou ultérieure
+le [code interne de Belenios](https://github.com/glondu/belenios/tree/master/src) est un logiciel libre, regi par la licence GNU Affero General Public License, version 3 ou ultérieure
 
 Belenios est une amélioration du protocole de Helios-C décrit [ici](http://eprint.iacr.org/2013/177), lui même une évolution duu protocole de [Helios](http://vote.heliosvoting.org).
 
