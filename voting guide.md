@@ -1,11 +1,11 @@
 
 this document gives you a line by line description of what's required to setup and run an election using code.vote and belenios underlying cryptographic protocol
 
-# Root
+# Root's Guide
 
 Please ask us to create a server instance for you
 
-# Administrator
+# Administrator's guide
 
 0. login to your code.vote server with your userid and password
 
@@ -70,7 +70,7 @@ Publish `XXXXXXXX_decryption.json` to the **bulletin board**.
 
 Note: be sure to authenticate all your input files when you use your private key!
 
-## census
+## census' guide
 
 0. login to your code.vote server with your userid and password
 
@@ -114,7 +114,7 @@ Note that each ballot must be authenticated in order to prevent the **census** f
 
 _____________________
 
-## Auditor
+## Auditor' Guide
 
 **ANYONE** can be an auditor. Everyone who aims to play a role
 in an election should start by auditing the election data.
