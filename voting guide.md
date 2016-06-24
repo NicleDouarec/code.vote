@@ -6,8 +6,9 @@ this document gives you a line by line description of what's required to setup a
 ## Administrator
 
  1. Generate an UUID with the `uuidgen` command.
- 
-      uuidgen
+
+$ uuidgen
+4f112241-8b3c-4b6b-8995-9c224c44867d
 
  
  Let the output be `$UUID` (e.g. : 
