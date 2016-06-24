@@ -1,6 +1,6 @@
 # code.vote
 
-Code to vote est un ensemble de processus, modes opératoires et bien sur code qui permet d'organiser un vote numérique, dématérialisé.
+Code to vote est un ensemble de processus, modes opératoires, configurations de serveurs et bien sur du code informatique qui permet d'organiser un vote numérique, dématérialisé.
 
 Le systeme de vote ainsi formé forme une référence de l'état de l'art. Les meilleures pratiques, et les meilleures tecnologies au service d'un système de vote dématérialisé sont implémentées dans code.vote.
 Le résultat est un système
@@ -13,13 +13,19 @@ le code interne de Belenios est un logiciel libre, regi par la licence GNU Affer
 Belenios est une amélioration du protocole de Helios-C décrit [ici](http://eprint.iacr.org/2013/177), lui même une évolution duu protocole de [Helios](http://vote.heliosvoting.org).
 
 
-Election overview
------------------
+Un scrutin avec code.vote.
+--------------------------
 
-An election involves several roles: an administrator, a credential
-authority, trustees and voters. For maximum security, each of these
-roles must be performed by a different entity. An election can be
-summarized as follows:
+Un scrutin commence par clarifier et attribuer les roles suivants :
+
+administrateur :
+census :  
+trustees :
+Ballot Box
+
+Electeurs. 
+
+POur assurer une sécurité maxium ces roles doivent être distincts et cloisonnés (a l'exception de l'electeur) par des individus et institutions indépendantes.
 
  1. The administrator initiates the process.
  2. The credential authority generates one credential per voter; he
