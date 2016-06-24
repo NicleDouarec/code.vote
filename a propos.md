@@ -21,30 +21,39 @@ Belenios est une amélioration du protocole de Helios-C décrit [ici](http://epr
 Un scrutin avec code.vote.
 --------------------------
 
-Un scrutin commence par clarifier et attribuer les roles suivants :
+## création de l'instance de vote
+**root** crée et configure l'instance serveur et les types d'utilisateurs qui forment le système de vote
 
-administrateur :
-census :  
-trustees :
-Ballot Box
+## configuration de l'election
 
-Electeurs. 
+1. l'**administrateur** technique du crutin numérique initialise les parametres : UUID du crutin, type de scrutin, edition des questions et des choix et leurs options, date de debut et de fin de la période de vote.
+2. les **trustees** (commissaires) generent leurs clés de dépouillement et affichent leur clé publique sur le **bulletin board** (bureau de vote numérique))
 
-POur assurer une sécurité maxium ces roles doivent être distincts et cloisonnés (a l'exception de l'electeur) par des individus et institutions indépendantes.
+## création du cors électoral
 
- 1. The administrator initiates the process.
- 2. The credential authority generates one credential per voter; he
-    sends the private part to each voter and all public parts to
-    the administrator.
- 3. Each trustee generates a keypair and sends his/her public key to
-    the administrator.
- 4. The administrator collects all public credentials and trustees'
-    public keys and sets up the election.
- 5. The administrator opens the election.
- 6. Each voter votes; the administrator collects, checks and publishes
-    all the ballots.
- 7. The administrator closes the election.
- 8. Trustees collectively decrypt the result.
- 9. The administrator announces the result of the election.
+1. le **census** (registre) enregistre les **electeurs** et leur remet leur clé (privée !) de vote et leur méthode d'authentification. A aucun moment les données personnelles de l'**electeur** ne sont transmises au **census**.
+2. lorsque l'enregistrement est clos le **census** publie la liste anonyme des clés publiques de vote sur le **bulletin board**
+
+le scrutin est pret pour la période de vote.
+
+## période de vote
+
+1. l'**électeur** vote et chiffre son bulletin dans son navigateur web.
+2. l'**electeur** valide le bulletin en le signant avec la methode d'authentifcation du registre. Une copie est conservée sur son ordinateur.
+3. l'**electeur** envoie son bulletin de vote chiffré signé au **bulletin board** qui le publie.
+4. a la fin de la période de vote le scrutin est figé et toute modification du **bulletin board** est impossible
+
+qui plus est à tout moment :
+- chaque **electeur*** peut modifier son vote jusqu'à la cloture de la période de vote. C'est le dernier bulletin qui est pris en compte dans le dépouillement.
+- chaque **électeur** peut verifier que son bulletin est bien présent dans l'urne numérique via le **bulletin board**
+- quiconque peut verifier que les bulletins de vote publiés sur le **bulletin board** sont bien valides
+
+## dépouillement
+
+1. l'**administrateur** clôt le scrutin, le **bulletin board** est définitivement figé et ne peut plus être modifié par personne
+2. les **trustees** (commissiares) décryptent collectivement les résultats et les publie sur le **bulletin board**
+3. l'**adnministrateur** agrege et vérifie les résultats.
+
+le résultat du vote est public et vérifiable a l'iade des parametres affichés sur le **bulletin board**.
 
 
