@@ -9,8 +9,8 @@ Please ask us to create a server instance for you
 
 0. login to your code.vote server with your userid and password
 
-    $ SSH AdminUserID@code.vote
-    AdminUserID@code.vote's password:
+      $ SSH AdminUserID@code.vote
+      AdminUserID@code.vote's password:
     
 ### setting up the election 
 
@@ -31,7 +31,7 @@ to generate `election.json`
 ### Tallying the election
 
  1. check  `election.json`,`public_keys.jsons`, `public_creds.txt` and `ballots.jsons`files
- 2. Concatenate the `partial_decryption.json` received from each trustee into a `partial_decryptions.jsons`, in the same order as in
+ 2. Concatenate the `XXXXX_decryption.json` published by each trustee into a `partial_decryptions.jsons`, in the same order as in
     `public_keys.jsons`.
  3. Run `belenios-tool finalize`.  It will create
     `result.json`. 
@@ -44,14 +44,14 @@ Note: `partial_decryptions.jsons` is a temporary file whose contents is embedded
 
 0. login to your code.vote server with your userid and password
 
-    $ SSH TrusteeID@code.vote
-    TrusteeID@code.vote's password:
+      $ SSH TrusteeID@code.vote
+      TrusteeID@code.vote's password:
 
-### crete your trustee keys
+### create your trustee keys
 
 1. Generate a trustee keypair with the command line :
 
-    belenios-tool trustee-keygen
+      belenios-tool trustee-keygen
 
 It will generate two files, `XXXXXXXX.public` and `XXXXXXXX.private`, containing respectively the public and the private key.
 
@@ -73,8 +73,8 @@ Note: be sure to authenticate all your input files when you use your private key
 
 0. login to your code.vote server with your userid and password
 
-    $ SSH CensusID@code.vote
-    CensusID@code.vote's password:
+      $ SSH CensusID@code.vote
+      CensusID@code.vote's password:
 
 ### voting keys generation
 
