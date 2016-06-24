@@ -5,14 +5,12 @@ this document gives you a line by line description of what's required to setup a
 
 ## Administrator
 
- 1. Generate an UUID with the `uuidgen` command.
-    
-$ uuidgen
-4f112241-8b3c-4b6b-8995-9c224c44867d
+Generate an UUID with the `uuidgen` command.
 
+    $ uuidgen
+    4f112241-8b3c-4b6b-8995-9c224c44867d
 
- 
- Let the output be `$UUID` (e.g. : 
+ Let the output be `$UUID`
  2.
  4. Ask the census to generate credentials with`$UUID` is needed for that. Save the file with public
     credentials into `public_creds.txt`.
