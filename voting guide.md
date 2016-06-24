@@ -3,32 +3,43 @@ this document gives you a line by line description of what's required to setup a
 
 ## Root
 
-## Administrator
+Please ask us to create a server instance for you
 
+## Administrator
+### setting up the election 
 Generate an UUID with the `uuidgen` command.
 
     $ uuidgen
     4f112241-8b3c-4b6b-8995-9c224c44867d
 
- Let the output be `$UUID`
- 2.
- 4. Ask the census to generate credentials with`$UUID` is needed for that. Save the file with public
-    credentials into `public_creds.txt`.
- 5. Ask each trustee to generate a keypair. Concatenate all trustee
-    public keys into a `$DIR/public_keys.jsons` file.
- 6. Edit `$BELENIOS/demo/templates/questions.json`.
- 7. Go to `$DIR` and run: `belenios-tool mkelection --uuid $UUID
-    --group $BELENIOS/demo/groups/default.json --template
-    $BELENIOS/demo/templates/questions.json`. It should generate
-    `election.json`.
- 8. Create an empty `ballots.jsons` file in `$DIR`.
-Auditor
----------------
+publish the output, `$UUID` and notify the **trustees** and the **census**
 
-Note that anyone can be an auditor. Everyone who plays a specific role
+Edit `questions.json`
+
+create the **bulletin board**
+run: `belenios-tool mkelection --uuid $UUID --group default.json --template questions.json`
+
+to generate `election.json`
+
+
+### Tallying the election
+
+ 1. check  `election.json`,`public_keys.jsons`, `public_creds.txt` and `ballots.jsons`files
+ 2. Concatenate the `partial_decryption.json` received from each trustee into a `partial_decryptions.jsons`, in the same order as in
+    `public_keys.jsons`.
+ 3. Run `belenios-tool finalize`.  It will create
+    `result.json`. 
+Publish this file on the **bulletin board**, along with the files listed in the first step above. The whole set will enable universal
+    verifiability.
+
+Note: `partial_decryptions.jsons` is a temporary file whose contents is embedded in `result.json`, so it can be discarded.
+
+## Auditor
+
+**ANYONE** can be an auditor. Everyone who aims to play a role
 in an election should start by auditing the election data.
 
-During an election, you should have access to the following files:
+During an election, anybody has read only access to the following files:
 
  * `election.json`: election parameters
  * `public_keys.jsons`: trustees' public keys
@@ -39,15 +50,9 @@ Note that the last one is dynamic, and evolve during the election. At
 the end of the election, it is frozen and a `result.json` file will be
 published.
 
-If you put these files in a directory `/path/to/election`, the following
-command will perform all possible verifications, depending on existing
-files:
+simply run the following command
 
-    belenios-tool verify --dir /path/to/election
-
-For example, during the election, you can check if some candidate
-ballot is acceptable by putting it alone in `ballots.jsons`, and
-running the command above.
+    belenios-tool verify
 
 
 Voter's guide
@@ -65,43 +70,20 @@ a raw ballot prepared with the command-line tool can be uploaded directly
 via the web interface.
 
 
-Administrator's guide
----------------------
-
-
+## bulletin board
 
 ### Running the election
-
-The contents of `$DIR` must be public.
 
 For each received ballot, append it to `ballots.jsons` and run:
 
     belenios-tool verify --dir $DIR
 
 If no error is reported, publish the new `ballots.jsons`; otherwise,
-the new ballot is incorrect and you must revert `ballots.jsons` to its
+the new ballot is incorrect and revert `ballots.jsons` to its
 previous state.
 
 Note that each ballot must be authenticated in order to prevent the
-credential authority from stuffing the ballot box. This issue is not
-addressed by the command-line tool, but the web server provides
-several authentication mechanisms.
-
-### Tallying the election
-
- 1. Go to the election directory, which must contain `election.json`,
-    `public_keys.jsons`, `public_creds.txt` and `ballots.jsons`.
- 2. Concatenate the `partial_decryption.json` received from each
-    trustee into a `partial_decryptions.jsons`, in the same order as in
-    `public_keys.jsons`.
- 3. Run `belenios-tool finalize`.  It will create
-    `result.json`. Publish this file, along with the files listed in
-    the first step above. The whole set will enable universal
-    verifiability.
-
-Note: `partial_decryptions.jsons` is a temporary file whose contents
-is embedded in `result.json`, so it can be discarded.
-
+credential authority from stuffing the ballot box.
 
 Credential authority's guide
 ----------------------------
@@ -129,8 +111,6 @@ election given by the administrator. It will generate three files with
    moment, this file has no practical purpose (but this might change in
    the future). Destroy it.
 
-You can optionally add a `--dir` option to specify the directory where
-these files will be written.
 
 
 Trustee's guide
