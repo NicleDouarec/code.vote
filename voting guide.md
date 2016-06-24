@@ -1,11 +1,11 @@
 
 this document gives you a line by line description of what's required to setup and run an election using code.vote and belenios underlying cryptographic protocol
 
-## Root
+# Root
 
 Please ask us to create a server instance for you
 
-## Administrator
+# Administrator
 
 login to your code.vote server with your userid and password
 
