@@ -21,7 +21,7 @@ Belenios est une amélioration du protocole de Helios-C décrit [ici](http://epr
 Un scrutin avec code.vote.
 --------------------------
 
-## création de l'instance de vote
+### création de l'instance de vote
 **root** crée et configure l'instance serveur et les types d'utilisateurs qui forment le système de vote
 
 ## configuration de l'election
@@ -29,7 +29,7 @@ Un scrutin avec code.vote.
 1. l'**administrateur** technique du crutin numérique initialise les parametres : UUID du crutin, type de scrutin, edition des questions et des choix et leurs options, date de debut et de fin de la période de vote.
 2. les **trustees** (commissaires) generent leurs clés de dépouillement et affichent leur clé publique sur le **bulletin board** (bureau de vote numérique))
 
-## création du cors électoral
+## création du corps électoral
 
 1. le **census** (registre) enregistre les **electeurs** et leur remet leur clé (privée !) de vote et leur méthode d'authentification. A aucun moment les données personnelles de l'**electeur** ne sont transmises au **census**.
 2. lorsque l'enregistrement est clos le **census** publie la liste anonyme des clés publiques de vote sur le **bulletin board**
@@ -44,7 +44,7 @@ le scrutin est pret pour la période de vote.
 4. a la fin de la période de vote le scrutin est figé et toute modification du **bulletin board** est impossible
 
 qui plus est à tout moment :
-- chaque **electeur*** peut modifier son vote jusqu'à la cloture de la période de vote. C'est le dernier bulletin qui est pris en compte dans le dépouillement.
+- chaque **electeur** peut modifier son vote jusqu'à la cloture de la période de vote. C'est le dernier bulletin qui est pris en compte dans le dépouillement.
 - chaque **électeur** peut verifier que son bulletin est bien présent dans l'urne numérique via le **bulletin board**
 - quiconque peut verifier que les bulletins de vote publiés sur le **bulletin board** sont bien valides
 
