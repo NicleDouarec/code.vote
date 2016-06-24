@@ -22,21 +22,23 @@ Un scrutin avec code.vote.
 --------------------------
 
 ### création de l'instance de vote
-**root** crée et configure l'instance serveur et les types d'utilisateurs qui forment le système de vote
 
-## configuration de l'election
+1. **root** crée et configure l'instance serveur et les types d'utilisateurs qui forment le système de vote
+2. les acodes d'acces a **root** sont détruits.
+
+### configuration de l'election
 
 1. l'**administrateur** technique du crutin numérique initialise les parametres : UUID du crutin, type de scrutin, edition des questions et des choix et leurs options, date de debut et de fin de la période de vote.
 2. les **trustees** (commissaires) generent leurs clés de dépouillement et affichent leur clé publique sur le **bulletin board** (bureau de vote numérique))
 
-## création du corps électoral
+### création du corps électoral
 
 1. le **census** (registre) enregistre les **electeurs** et leur remet leur clé (privée !) de vote et leur méthode d'authentification. A aucun moment les données personnelles de l'**electeur** ne sont transmises au **census**.
 2. lorsque l'enregistrement est clos le **census** publie la liste anonyme des clés publiques de vote sur le **bulletin board**
 
 le scrutin est pret pour la période de vote.
 
-## période de vote
+### période de vote
 
 1. l'**électeur** vote et chiffre son bulletin dans son navigateur web.
 2. l'**electeur** valide le bulletin en le signant avec la methode d'authentifcation du registre. Une copie est conservée sur son ordinateur.
@@ -48,7 +50,7 @@ qui plus est à tout moment :
 - chaque **électeur** peut verifier que son bulletin est bien présent dans l'urne numérique via le **bulletin board**
 - quiconque peut verifier que les bulletins de vote publiés sur le **bulletin board** sont bien valides
 
-## dépouillement
+### dépouillement
 
 1. l'**administrateur** clôt le scrutin, le **bulletin board** est définitivement figé et ne peut plus être modifié par personne
 2. les **trustees** (commissiares) décryptent collectivement les résultats et les publie sur le **bulletin board**
