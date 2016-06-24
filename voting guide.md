@@ -7,7 +7,7 @@ this document gives you a line by line description of what's required to setup a
 
  1. Generate an UUID with the `uuidgen` command.
  
-     uuidgen
+      uuidgen
 
  
  Let the output be `$UUID` (e.g. : 
