@@ -7,8 +7,9 @@ Please ask us to create a server instance for you
 
 ## Administrator
 
-login to your code.vote server
-    $ SSH code.vote
+login to your code.vote server with your userid and password
+    $ SSH adminuserID@code.vote
+    minuserID@code.vote's password:
     
 ### setting up the election 
 Generate an UUID with the `uuidgen` command.
