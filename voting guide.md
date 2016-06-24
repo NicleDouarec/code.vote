@@ -1,11 +1,27 @@
 
-Introduction
-------------
-
 this document gives you a line by line description of what's required to setup and run an election using code.vote and belenios underlying cryptographic protocol
 
-Root
+## Root
 
+## Administrator
+
+ 1. Generate an UUID with the `uuidgen` command.
+ 
+     uuidgen
+
+ 
+ Let the output be `$UUID` (e.g. : 
+ 2.
+ 4. Ask the census to generate credentials with`$UUID` is needed for that. Save the file with public
+    credentials into `public_creds.txt`.
+ 5. Ask each trustee to generate a keypair. Concatenate all trustee
+    public keys into a `$DIR/public_keys.jsons` file.
+ 6. Edit `$BELENIOS/demo/templates/questions.json`.
+ 7. Go to `$DIR` and run: `belenios-tool mkelection --uuid $UUID
+    --group $BELENIOS/demo/groups/default.json --template
+    $BELENIOS/demo/templates/questions.json`. It should generate
+    `election.json`.
+ 8. Create an empty `ballots.jsons` file in `$DIR`.
 Auditor
 ---------------
 
@@ -52,23 +68,7 @@ via the web interface.
 Administrator's guide
 ---------------------
 
-### Setup a new election
 
- 1. Generate an UUID with the `uuidgen` command. Let it be `$UUID`.
- 2. Go to an empty directory. In the following, we denote by `$DIR`
-    the full path to this directory and by `$BELENIOS` the full path
-    to the Belenios source tree.
- 4. Ask the credential authority to generate credentials. Note that
-    `$UUID` is needed for that. Save the file with public
-    credentials into `$DIR/public_creds.txt`.
- 5. Ask each trustee to generate a keypair. Concatenate all trustee
-    public keys into a `$DIR/public_keys.jsons` file.
- 6. Edit `$BELENIOS/demo/templates/questions.json`.
- 7. Go to `$DIR` and run: `belenios-tool mkelection --uuid $UUID
-    --group $BELENIOS/demo/groups/default.json --template
-    $BELENIOS/demo/templates/questions.json`. It should generate
-    `election.json`.
- 8. Create an empty `ballots.jsons` file in `$DIR`.
 
 ### Running the election
 
