@@ -13,21 +13,19 @@ login to your code.vote server with your userid and password
     AdminUserID@code.vote's password:
     
 ### setting up the election 
-Generate an UUID with the `uuidgen` command.
+
+1. Generate an UUID with the `uuidgen` command.
 
     $ uuidgen
     4f112241-8b3c-4b6b-8995-9c224c44867d
 
-publish the output, `$UUID` and notify the **trustees** and the **census**
+2. Edit `questions.json`
 
-Edit `questions.json`
-
-create the **bulletin board**
-
+3. create the **bulletin board**
 `belenios-tool mkelection --uuid $UUID --group default.json --template questions.json`
-
 to generate `election.json`
 
+4. Publish `$UUID` on the bulletin board and notify the **trustees** and the **census**
 
 ### Tallying the election
 
