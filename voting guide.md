@@ -27,6 +27,7 @@ Please ask us to create a server instance for you
 to generate `election.json`
 
 4. Publish `$UUID` on the bulletin board and notify the **trustees** and the **census**
+5. check the published `election.json`,`public_keys.jsons`, `public_creds.txt` and create an empty`ballots.jsons`files
 
 ### Tallying the election
 
@@ -44,8 +45,8 @@ Note: `partial_decryptions.jsons` is a temporary file whose contents is embedded
 
 0. login to your code.vote server with your userid and password
 
-      $ SSH TrusteeID@code.vote
-      TrusteeID@code.vote's password:
+        $ SSH TrusteeID@code.vote
+        TrusteeID@code.vote's password:
 
 ### create your trustee keys
 
@@ -73,8 +74,8 @@ Note: be sure to authenticate all your input files when you use your private key
 
 0. login to your code.vote server with your userid and password
 
-      $ SSH CensusID@code.vote
-      CensusID@code.vote's password:
+        $ SSH CensusID@code.vote
+        CensusID@code.vote's password:
 
 ### voting keys generation
 
