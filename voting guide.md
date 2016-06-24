@@ -16,8 +16,8 @@ login to your code.vote server with your userid and password
 
 1. Generate an UUID with the `uuidgen` command.
 
-     $ uuidgen
-     4f112241-8b3c-4b6b-8995-9c224c44867d
+    '$ uuidgen'
+    '4f112241-8b3c-4b6b-8995-9c224c44867d'
     
 
 2. Edit `questions.json`
