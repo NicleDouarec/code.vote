@@ -22,7 +22,7 @@ Un scrutin avec code.vote.
 --------------------------
 
 le scrutin numerique est similaire a tout scrutin et comporte :
-- une phase de préapration
+- une phase de préparation
 - une phase / tache d'enregistrement des electeurs dans une 'liste lectorale'
 - une phase de vote a proprement parlé
 - une phase de dépuoillement, vérification
