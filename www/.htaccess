@@ -1,0 +1,11 @@
+# Errors handling
+ErrorDocument 404 /?app=errors.404
+ErrorDocument 503 /?app=errors.503
+
+# Url rewriting
+RewriteEngine On
+RewriteBase /
+RewriteRule ^404/$ ?app=errors.404 [QSA,L]
+RewriteRule ^503/$ ?app=errors.503 [QSA,L]
+RewriteRule ^$ ?app=home [QSA,L]
+RewriteRule ^php/ /?app=errors.404 [L]

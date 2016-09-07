@@ -1,0 +1,118 @@
+/* Tags */
+#app .background {
+	background-color: rgba(0, 0, 0, .75);
+	height: 100%;
+	left: 0px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+}
+
+#app .background .popup {
+	background-color: #ffffff;
+	border-radius: 3px;
+	left: 50%;
+	min-width: 290px;
+	padding: 0px 15px;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#app .background .popup #appConfirmationKey {
+	font-size: 12px;
+	text-align: left;
+	word-break: break-all;
+}
+
+#app .background .popup p {
+	margin: 15px 0px;
+}
+
+#app .background .popup p button {
+	background-color: #f7f7f7;
+	border: 1px solid #d7d7d7;
+	border-radius: 3px;
+	font-size: 16px;
+	padding: 5px 20px;
+}
+
+#app footer {
+	border-top: 1px solid #ebebeb;
+	color: #757575;
+	font-size: 12px;
+	font-style: italic;
+	margin: 20px 0px;
+	padding-top: 15px;
+}
+
+#app footer p {
+	margin: 5px 0px !important;
+}
+
+#app form {
+	border-top: 1px solid #ebebeb;
+	margin: 20px 0px;
+}
+
+#app form > div {
+	margin: 20px 0px;
+}
+
+#app form > div *[data-validity=invalid] ~ .invalid {
+	display: inline-block;
+}
+
+#app form > div input {
+	border-radius: 3px;
+	font-family: Roboto;
+	font-size: 16px;
+	font-weight: 300;
+	vertical-align: middle;
+}
+
+#app form > div input[type=checkbox] {
+	margin: 5px 0px;
+}
+
+#app form > div input[type=radio] {
+	margin: 5px 0px;
+}
+
+#app form > div input[type=submit] {
+	border: 1px solid #d7d7d7;
+	background-color: #f7f7f7;
+	padding: 5px 20px;
+}
+
+#app form > div input[type=text] {
+	border: 1px solid #d7d7d7;
+	margin: 5px 0px;
+	padding: 5px;
+	width: 200px;
+}
+
+#app form > div input + label {
+	font-size: 14px;
+	margin-left: 5px;
+}
+
+#app form > div label:after {
+	content: '\A';
+	white-space: pre;
+}
+
+#app form > div label:first-child {
+	font-size: 23px;
+	font-weight: 300;
+}
+
+#app form > div span {
+	color: #ff0000;
+	display: none;
+	font-size: 13px;
+	font-style: italic;
+	margin: 5px 0px;
+	white-space: nowrap;
+}
