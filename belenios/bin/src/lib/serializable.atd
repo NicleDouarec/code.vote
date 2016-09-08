@@ -1,0 +1,130 @@
+(**************************************************************************)
+(*                                BELENIOS                                *)
+(*                                                                        *)
+(*  Copyright © 2012-2016 Inria                                           *)
+(*                                                                        *)
+(*  This program is free software: you can redistribute it and/or modify  *)
+(*  it under the terms of the GNU Affero General Public License as        *)
+(*  published by the Free Software Foundation, either version 3 of the    *)
+(*  License, or (at your option) any later version, with the additional   *)
+(*  exemption that compiling, linking, and/or using OpenSSL is allowed.   *)
+(*                                                                        *)
+(*  This program is distributed in the hope that it will be useful, but   *)
+(*  WITHOUT ANY WARRANTY; without even the implied warranty of            *)
+(*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *)
+(*  Affero General Public License for more details.                       *)
+(*                                                                        *)
+(*  You should have received a copy of the GNU Affero General Public      *)
+(*  License along with this program.  If not, see                         *)
+(*  <http://www.gnu.org/licenses/>.                                       *)
+(**************************************************************************)
+
+<doc text="Serializable datatypes">
+
+(** {2 Predefined types} *)
+
+type number <ocaml predef from="Serializable_builtin"> = abstract
+type uuid <ocaml predef from="Serializable_builtin"> = abstract
+
+(** {2 Basic cryptographic datastructures} *)
+
+type 'a ciphertext = {
+  alpha : 'a;
+  beta : 'a;
+}
+<doc text="An ElGamal ciphertext.">
+
+type proof = {
+  challenge : number;
+  response : number;
+}
+<doc text="A Fiat-Shamir non-interactive zero-knowledge proof of knowledge (ZKP).">
+
+type disjunctive_proof = proof list <ocaml repr="array">
+<doc text="A disjunctive ZKP. The size of the array is the number of disjuncts. ">
+
+(** {2 Trustees} *)
+
+type 'a trustee_public_key = {
+  pok : proof;
+  public_key : 'a;
+} <ocaml field_prefix="trustee_">
+
+(** {2 Elections} *)
+
+type ff_params = {
+  g : number;
+  p : number;
+  q : number;
+}
+<doc text="Parameters for a multiplicative subgroup of a finite field.">
+
+type ('a, 'b) wrapped_pubkey = {
+  group : 'a;
+  y : 'b;
+} <ocaml field_prefix="wpk_">
+<doc text="A public key wrapped with its group parameters.">
+
+type question = {
+  answers : string list <ocaml repr="array">;
+  min : int;
+  max : int;
+  question : string;
+} <ocaml field_prefix="q_">
+
+type 'a params = {
+  description : string;
+  name : string;
+  public_key : 'a;
+  questions : question list <ocaml repr="array">;
+  uuid : uuid;
+  short_name : string;
+} <ocaml field_prefix="e_">
+<doc text="Election parameters relevant for creating a ballot.">
+
+type template = {
+  description : string;
+  name : string;
+  questions : question list <ocaml repr="array">;
+  short_name : string;
+} <ocaml field_prefix="t_">
+<doc text="Election template.">
+
+type 'a answer = {
+  choices : 'a ciphertext list <ocaml repr="array">;
+  individual_proofs : disjunctive_proof list <ocaml repr="array">;
+  overall_proof : disjunctive_proof;
+}
+<doc text="An answer to a question. It consists of a weight for each
+choice, a proof that each of these weights is 0 or 1, and an overall
+proof that the total weight is within bounds.">
+
+(* FIXME: merge this with trustee_public_key *)
+type 'a signature = {
+  public_key : 'a;
+  challenge : number;
+  response : number;
+} <ocaml field_prefix="s_">
+
+type 'a ballot = {
+  answers : 'a answer list <ocaml repr="array">;
+  election_hash : string;
+  election_uuid : uuid;
+  ?signature : 'a signature option;
+}
+
+type 'a partial_decryption = {
+  decryption_factors : 'a list <ocaml repr="array"> list <ocaml repr="array">;
+  decryption_proofs : proof list <ocaml repr="array"> list <ocaml repr="array">;
+}
+
+type plaintext = int list <ocaml repr="array"> list <ocaml repr="array">
+
+type 'a encrypted_tally = 'a ciphertext list <ocaml repr="array"> list <ocaml repr="array">
+
+type 'a result = {
+  num_tallied : int;
+  encrypted_tally : 'a encrypted_tally;
+  partial_decryptions : 'a partial_decryption list <ocaml repr="array">;
+  result : plaintext;
+}

@@ -1,0 +1,38 @@
+@import url('style.css');
+@import url('superfish.css');
+
+#page-title-home {
+    height:223px;
+}
+ol {
+    list-style: decimal;
+}
+ul {
+    list-style: disc;
+}
+#wrapper {
+    min-height: 0px;
+    font-size: 16px;
+}
+#header {
+    color: #ffffff;
+    height: 90px;
+}
+#main {
+    border-radius: 0px 0px 0px 0px;
+    padding: 10px;
+}
+#footer #bottom {
+    line-height: 3em;
+}
+#header a {
+    color: #ffffff;
+}
+button {
+    cursor: pointer;
+}
+.current_step {
+    text-align: center;
+    font-size: 28px;
+    padding-bottom: 28px;
+}

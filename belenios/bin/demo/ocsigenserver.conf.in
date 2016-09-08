@@ -1,0 +1,48 @@
+<!-- -*- Mode: Xml -*- -->
+<ocsigen>
+
+  <server>
+
+    <port>8001</port>
+
+    <logdir>_RUNDIR_/log</logdir>
+    <datadir>_RUNDIR_/lib</datadir>
+
+    <uploaddir>_RUNDIR_/upload</uploaddir>
+    <maxuploadfilesize>128kB</maxuploadfilesize>
+
+    <commandpipe>_TMPDIR_/run/ocsigenserver_command</commandpipe>
+
+    <charset>utf-8</charset>
+
+    <findlib path="_OCAML_STDLIBDIR_"/>
+
+    <extension findlib-package="ocsigenserver.ext.staticmod"/>
+
+    <extension findlib-package="ocsigenserver.ext.ocsipersist-sqlite">
+      <database file="_RUNDIR_/lib/ocsidb"/>
+    </extension>
+
+    <extension findlib-package="eliom.server"/>
+
+    <extension findlib-package="zarith"/>
+    <extension findlib-package="uuidm"/>
+    <extension findlib-package="atdgen"/>
+    <extension findlib-package="csv"/>
+
+    <host charset="utf-8" hostfilter="*" defaulthostname="localhost">
+      <site path="static" charset="utf-8">
+        <static dir="_SRCDIR_/_build/src/static" />
+      </site>
+      <eliom module="_build/src/web/server.cma">
+        <auth name="demo"><dummy/></auth>
+        <auth name="local"><password db="demo/password_db.csv"/></auth>
+        <source file="../belenios.tar.gz"/>
+        <log file="_RUNDIR_/log/security.log"/>
+        <spool dir="_RUNDIR_/spool"/>
+      </eliom>
+    </host>
+
+  </server>
+
+</ocsigen>
